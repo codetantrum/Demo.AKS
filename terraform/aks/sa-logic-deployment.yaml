@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sa-logic
+  labels:
+    app: sa-logic
+spec:
+  selector:
+     matchLabels:
+       app: sa-logic
+  template:
+    metadata:
+      labels:
+        app: sa-logic
+    spec:
+      containers:
+        - image: codetantrum/sentiment-analysis-logic
+          imagePullPolicy: Always
+          name: sa-logic
+          ports:
+            - containerPort: 5000
